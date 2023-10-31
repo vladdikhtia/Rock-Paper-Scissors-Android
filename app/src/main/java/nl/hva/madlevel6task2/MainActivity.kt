@@ -89,7 +89,7 @@ fun GameNavHost(modifier : Modifier, navController : NavHostController) {
         modifier =  modifier
     ) {
         composable(GameScreens.PlayScreen.route){ PlayScreen(modifier = Modifier, navController) }
-        composable(GameScreens.HistoryScreen.route) { HistoryScreen() }
+        composable(GameScreens.HistoryScreen.route) { HistoryScreen(modifier = Modifier) }
     }
 }
 
