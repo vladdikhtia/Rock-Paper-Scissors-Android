@@ -2,6 +2,7 @@ package nl.hva.madlevel6task2.repository
 
 import android.content.Context
 import nl.hva.madlevel6task2.database.GameDao
+import nl.hva.madlevel6task2.database.GameRoomDatabase
 import nl.hva.madlevel6task2.model.Game
 
 class GameRepository(context : Context) {
@@ -18,5 +19,9 @@ class GameRepository(context : Context) {
     suspend fun insert(game : Game) = gameDao.insert(game)
 
     suspend fun deleteAll() = gameDao.deleteAll()
+
+    fun getWinsCount() = gameDao.getWinsCount()
+    fun getDrawsCount() = gameDao.getDrawsCount()
+    fun getLossesCount() = gameDao.getLossesCount()
 
 }

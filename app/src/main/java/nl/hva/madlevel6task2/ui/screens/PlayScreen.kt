@@ -166,13 +166,12 @@ fun PlayScreen(modifier : Modifier, navController : NavController, viewModel : G
                         .clickable {
                             userSelectedImage.value = R.drawable.rock
                             computerSelectedImage.value = viewModel.getRandomImage()
-                            viewModel.getDateAndTime()
-
                             result.value = viewModel.checkWinner(
                                 userSelectedImage.value,
                                 computerSelectedImage.value
                             )
-                            val newGame = verifyInputAndCorrect(viewModel.getDateAndTime(),
+                            val newGame = verifyInputAndCorrect(
+                                viewModel.getDateAndTime(),
                                 computerSelectedImage.value!!, userSelectedImage.value!!
                             )
                             // TODO: insert the new game into the database!
@@ -189,12 +188,12 @@ fun PlayScreen(modifier : Modifier, navController : NavController, viewModel : G
                         .clickable {
                             userSelectedImage.value = R.drawable.paper
                             computerSelectedImage.value = viewModel.getRandomImage()
-                            viewModel.getDateAndTime()
                             result.value = viewModel.checkWinner(
                                 userSelectedImage.value,
                                 computerSelectedImage.value
                             )
-                            val newGame = verifyInputAndCorrect(viewModel.getDateAndTime(),
+                            val newGame = verifyInputAndCorrect(
+                                viewModel.getDateAndTime(),
                                 computerSelectedImage.value!!, userSelectedImage.value!!
                             )
                             // TODO: insert the new game into the database!
@@ -210,16 +209,16 @@ fun PlayScreen(modifier : Modifier, navController : NavController, viewModel : G
                         .clickable {
                             userSelectedImage.value = R.drawable.scissors
                             computerSelectedImage.value = viewModel.getRandomImage()
-                            viewModel.getDateAndTime()
                             result.value = viewModel.checkWinner(
                                 userSelectedImage.value,
                                 computerSelectedImage.value
                             )
-                            val newGame = verifyInputAndCorrect(viewModel.getDateAndTime(),
+                            val newGame = verifyInputAndCorrect(
+                                viewModel.getDateAndTime(),
                                 computerSelectedImage.value!!, userSelectedImage.value!!
                             )
-                                // TODO: insert the new game into the database!
-                                viewModel.insertGame(newGame)
+                            // TODO: insert the new game into the database!
+                            viewModel.insertGame(newGame)
                         }
 
                 )
@@ -227,12 +226,13 @@ fun PlayScreen(modifier : Modifier, navController : NavController, viewModel : G
         }
     }
 }
+
 fun verifyInputAndCorrect(
-    gameDate: Date,
-    computerChoice: Int,
-    userChoice: Int
-): Game {
-    val result: String
+    gameDate : Date,
+    computerChoice : Int,
+    userChoice : Int
+) : Game {
+    val result : String
 
     if (userChoice == computerChoice) {
         result = "Draw"
@@ -251,11 +251,6 @@ fun verifyInputAndCorrect(
 }
 
 
-
-//gameTitle = title
-//gamePlatform = platform
-//resultingGame = Game(gameTitle, gamePlatform, gameReleaseDate)
-//return resultingGame
 @Preview
 @Composable
 fun PreviewPlayScreen() {
